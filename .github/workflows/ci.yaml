@@ -1,0 +1,29 @@
+name: Compile Lint Test
+on:
+  push:
+    
+compile:
+    runs-on: ubuntu-latest
+    name: Compile & lint & test
+     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install deps
+        run: npm install
+
+      - name: Compile TS
+        run: npm run ts-compile
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+
