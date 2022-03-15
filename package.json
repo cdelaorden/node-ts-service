@@ -1,7 +1,7 @@
 {
-  "name": "ts",
-  "version": "1.0.0",
-  "description": "",
+  "name": "node-ts-base",
+  "version": "0.1.0",
+  "description": "Base TS Node project",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
@@ -17,8 +17,8 @@
     "type": "git",
     "url": "git+https://github.com/cdelaorden/node-ts.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node", "typescript", "boilerplate"],
+  "author": "Carlos de la Orden",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cdelaorden/node-ts/issues"
