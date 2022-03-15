@@ -2,7 +2,8 @@ name: Compile Lint Test
 on:
   push:
     
-compile:
+jobs:
+  compile:
     runs-on: ubuntu-latest
     name: Compile & lint & test
     steps:
