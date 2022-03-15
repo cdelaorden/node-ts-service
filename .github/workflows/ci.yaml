@@ -5,7 +5,7 @@ on:
 compile:
     runs-on: ubuntu-latest
     name: Compile & lint & test
-     steps:
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
 
