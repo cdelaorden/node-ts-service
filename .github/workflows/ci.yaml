@@ -1,7 +1,11 @@
 name: Compile Lint Test
 on:
-  push:
-    
+  push: [push, pull_request]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   compile:
     runs-on: ubuntu-latest
