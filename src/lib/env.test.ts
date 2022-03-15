@@ -15,7 +15,7 @@ describe('Env helpers', () => {
     })
   })
 
-  describe('int', () => {
+  describe('env.int', () => {
     it('returns parsed integer if present', () => {
       process.env.TEST = "25"
       expect(env.int('TEST')).toBe(25)
@@ -26,7 +26,7 @@ describe('Env helpers', () => {
     })
   })
 
-  describe('bool', () => {
+  describe('env.bool', () => {
     it('parses true/false', () => {
       process.env.BOOL_TEST = 'true'
       expect(env.bool('BOOL_TEST')).toBe(true)
@@ -52,9 +52,9 @@ describe('Env helpers', () => {
     })
   })
 
-  describe('array', () => {
+  describe('env.array', () => {
     it('returns default value if var not present', () => {
-      expect(env.array('not_found', [1, 2, 3])).toEqual([1, 2, 3])
+      expect(env.array('not_found', ['1', '2', '3'])).toEqual(['1', '2', '3'])
       expect(env.array('not_found')).toEqual([])
     })
     it('splits by comma by default', () => {
