@@ -16,7 +16,7 @@ env.bool = (key:string, defaultValue?:boolean):boolean => {
   return Boolean(env.int(key, Number(defaultValue)))
 }
 
-env.array = (key:string, defaultValue: any[] = [], separator = ','): string[] => {
+env.array = (key:string, defaultValue: string[] = [], separator = ','): string[] => {
   const value = process.env[key]
   if (value == null) return defaultValue
   return value.split(separator).map(x => x.trim())

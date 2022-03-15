@@ -11,13 +11,18 @@
     "lint": "eslint ./src --ext .ts",
     "coverage": "jest --passWithNoTests --coverage",
     "build": "tsc",
-    "start": "node build/index.js"
+    "start": "node build/index.js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cdelaorden/node-ts.git"
   },
-  "keywords": ["node", "typescript", "boilerplate"],
+  "keywords": [
+    "node",
+    "typescript",
+    "boilerplate"
+  ],
   "author": "Carlos de la Orden",
   "license": "ISC",
   "bugs": {
@@ -33,7 +38,8 @@
     "jest": "^27.5.1",
     "ts-jest": "^27.1.3",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "husky": "^7.0.0"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
