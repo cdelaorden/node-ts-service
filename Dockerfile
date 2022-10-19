@@ -1,17 +1,19 @@
 # Builder image install deps and builds TS
-FROM node:16 as builder
-COPY ["package.json", "package-lock.json"]
-RUN npm install
+FROM node:16-alpine as builder
+COPY ["package.json", "package-lock.json", "tsconfig.json", "./"]
+RUN npm install --ignore-scripts
+COPY . ./
 RUN npm run build
 
 # Local dev, shared src, node_modules etc
-FROM node:16 as dev
+FROM node:16-alpine as dev
 WORKDIR /app
 COPY . .
 
 # Production build, include only production dependencies
-FROM node:16 as production
+FROM node:16-slim as production
 WORKDIR /app
-RUN npm install --production
-COPY --from=builder ["build", "."]
-CMD node index.js
+COPY ["package.json", "package-lock.json", "./"]
+RUN npm install --production --ignore-scripts
+COPY --from=builder ["build", "./"]
+ENTRYPOINT [ "node index.js" ]

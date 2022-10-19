@@ -18,14 +18,22 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install deps
-        run: npm install
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: Compile TS
-        run: npm run ts-compile
+      - name: Install deps
+        run: npm ci --ignore-scripts
 
       - name: Lint
         run: npm run lint
+
+      - name: Compile TS
+        run: npm run ts-compile     
 
       - name: Test
         run: npm run test

@@ -17,7 +17,7 @@ describe('Env helpers', () => {
 
   describe('env.int', () => {
     it('returns parsed integer if present', () => {
-      process.env.TEST = "25"
+      process.env['TEST'] = "25"
       expect(env.int('TEST')).toBe(25)
     })
 
@@ -28,19 +28,19 @@ describe('Env helpers', () => {
 
   describe('env.bool', () => {
     it('parses true/false', () => {
-      process.env.BOOL_TEST = 'true'
+      process.env['BOOL_TEST'] = 'true'
       expect(env.bool('BOOL_TEST')).toBe(true)
-      process.env.BOOL_TEST = 'TRUE'
+      process.env['BOOL_TEST'] = 'TRUE'
       expect(env.bool('BOOL_TEST')).toBe(true)
-      process.env.BOOL_TEST = 'false'
+      process.env['BOOL_TEST'] = 'false'
       expect(env.bool('BOOL_TEST')).toBe(false)
-      process.env.BOOL_TEST = 'FALSE'
+      process.env['BOOL_TEST'] = 'FALSE'
       expect(env.bool('BOOL_TEST')).toBe(false)
     })
 
     it('parses numbers as booleans', () => {
-      process.env.BOOL_TEST_NUM = '1'
-      process.env.BOOL_TEST_NUM2 = '0'
+      process.env['BOOL_TEST_NUM'] = '1'
+      process.env['BOOL_TEST_NUM2'] = '0'
       expect(env.bool('BOOL_TEST_NUM')).toBe(true)
       expect(env.bool('BOOL_TEST_NUM2')).toBe(false)
     })
@@ -58,7 +58,7 @@ describe('Env helpers', () => {
       expect(env.array('not_found')).toEqual([])
     })
     it('splits by comma by default', () => {
-      process.env.ARRAY_TEST = '1,2,3, 4, 5,     6,  7'
+      process.env['ARRAY_TEST'] = '1,2,3, 4, 5,     6,  7'
       expect(env.array('ARRAY_TEST')).toEqual([
         '1', '2', '3', '4', '5', '6', '7'
       ])
