@@ -8,7 +8,7 @@ A basic, pre-configured Node.js app to be used as starting template using for ex
 - Jest testing using TS, via `ts-jest`.
 - Uses `esbuild` instead of `ts-node` for developing. Blazing fast you know.
 - Dockerfile with multi-step build based on `slim` image (only 185Mb base image size after compilation). 
-- Basic Github pipeline (`ci.yml`) that lints, tests and compiles TS on `push` and `pull_request` to `main` branch only.
+- Basic Github pipeline (`ci.yml`) that caches `node_modules`, and then runs lint, test and compile TS on `push` and `pull_request` to `main` branch only.
 
 A note on `slim` base image: see here [Image Variants](https://hub.docker.com/_/node) regarding this. In case something wrong happens during the build, switch to `node-18` image for safety, specially if using dependencies with native binaries (like `sharp` for image manipulation and so on).
 
