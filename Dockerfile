@@ -16,4 +16,4 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm install --production --ignore-scripts
 COPY --from=builder ["build", "./"]
-ENTRYPOINT [ "node index.js" ]
+CMD [ "npm",  "start" ]
