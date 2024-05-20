@@ -1,7 +1,7 @@
 name: Compile Lint Test
-on: 
+on:
   push:
-      branches:
+    branches:
       - main
   pull_request:
     branches:
@@ -19,10 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Cache node_modules
         uses: actions/cache@v3
@@ -39,9 +39,7 @@ jobs:
         run: npm run lint
 
       - name: Compile TS
-        run: npm run ts-compile     
+        run: npm run ts-compile
 
       - name: Test
         run: npm run test
-
-
